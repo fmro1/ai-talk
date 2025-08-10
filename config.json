@@ -1,0 +1,40 @@
+{
+    "whisper": {
+        "model": "base.en",
+        "use_faster_whisper": true,
+        "device": "auto",
+        "compute_type": "float16"
+    },
+    "text_generation": {
+        "base_url": "http://localhost:5000",
+        "endpoints": {
+            "completions": "/v1/completions",
+            "chat": "/v1/chat/completions",
+            "models": "/v1/models"
+        },
+        "parameters": {
+            "max_tokens": 150,
+            "temperature": 0.7,
+            "top_p": 0.9,
+            "stop": [
+                "Human:",
+                "User:"
+            ],
+            "stream": false
+        },
+        "use_chat_format": true
+    },
+    "tts": {
+        "model_name": "tts_models/en/ljspeech/tacotron2-DDC",
+        "use_coqui": true,
+        "fallback_espeak": true
+    },
+    "audio": {
+        "sample_rate": 16000,
+        "channels": 1,
+        "chunk_size": 1024,
+        "record_seconds": 5,
+        "silence_threshold": 0.01,
+        "silence_duration": 2.0
+    }
+}
